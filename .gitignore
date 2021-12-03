@@ -1,0 +1,4 @@
+.env
+/Vendors/
+/.sass-cache/*
+/node_modules/

@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/********************** Général *****************************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.btn {
+  text-decoration: none;
+  color: inherit; }
+
+@keyframes countdown {
+  0% {
+    width: 100%;
+    background: #627246; }
+  100% {
+    width: 0%;
+    background: #b3cf81; } }
+.turnAround {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+#play h1 {
+  text-align: center; }
+#play .game-wrapper {
+  width: 700px;
+  height: min-content;
+  min-height: 700px;
+  background-color: #627246;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px; }
+  #play .game-wrapper .timer #bar {
+    width: 95%;
+    border: solid 1px black;
+    background-color: #fff; }
+    #play .game-wrapper .timer #bar .innerBar {
+      height: 15px;
+      animation: countdown;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear; }
+  #play .game-wrapper .inside-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    justify-content: center; }
+    #play .game-wrapper .inside-wrapper .card {
+      position: relative;
+      width: 10%;
+      height: 64px;
+      margin: 10px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s; }
+      #play .game-wrapper .inside-wrapper .card:active {
+        transform: scale(0.9);
+        transition: transform 0.5s; }
+      #play .game-wrapper .inside-wrapper .card > div {
+        backface-visibility: hidden;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        padding: 5px; }
+      #play .game-wrapper .inside-wrapper .card .card-back {
+        object-fit: cover;
+        transform: rotateY(180deg);
+        background-position: center; }
+      #play .game-wrapper .inside-wrapper .card .card-front {
+        background: #b3cf81; }
+#play .success {
+  display: none; }
+
+/************Media queries*********/
+
+/*# sourceMappingURL=style.css.map */
