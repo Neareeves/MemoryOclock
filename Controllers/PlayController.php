@@ -1,6 +1,6 @@
 <?php
 //le controlleur inclut le ou les modèles
-include('Models/base.php');
+include('Models/Score.php');
 
 
 

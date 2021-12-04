@@ -6,7 +6,7 @@
 
 
     Affichage des meilleurs scores <br>
-    <a href="/play" class="btn">Nouveau jeu</a> <br>
+    <a href="/memory/?page=play" class="btn">Nouveau jeu</a> <br>
     <a href="" class="btn">Consulter les scores</a>
 </div>
     
