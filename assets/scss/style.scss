@@ -1,7 +1,19 @@
 /********************** Général *****************************/
-$darkGreen: rgba(98, 114, 70, 1);
-$lightGreen: rgb(179, 207, 129);
+/* colors */
+$darkGreen: #804055;
+$lightGreen: #d99d62;
 $borderColor: black;
+$buttonBackground: #fff2d9;
+$buttonHoverBackground: #d99d62;
+$black: #171726;
+$red: #804055;
+$yellow: #d99d62;
+$white: #fff2d9;
+$lightwhite: rgba(255, 243, 219, 0.16);
+/* distances */
+$smallMargin: 20px;
+
+/* règles générales */
 
 * {
     padding: 0;
@@ -9,11 +21,41 @@ $borderColor: black;
     box-sizing: border-box;
 }
 
+body {
+    font-family: sans-serif;
+    background-color: $black;
+    color: $white;
+}
+
 .btn {
     text-decoration: none;
     color: inherit;
+    padding: 15px 20px;
+    background-color: $buttonBackground;
+    display: inline-block;
+    margin: 5px;
+    color: $black;
+    border-radius: 3px;
 }
 
+.btn:hover {
+    background-color: $buttonHoverBackground;
+    transition: .5s ease;
+    transform: scale(1.05);
+}
+
+.page-wrapper {
+    padding-top: 50px;
+}
+
+
+
+.turnAround {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+/****************** Animations **************/
 @keyframes countdown {
     0% {
         width: 100%;
@@ -25,20 +67,31 @@ $borderColor: black;
     }
 }
 
-.turnAround {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+
+/******************* Home page *****************/ 
+.home {
+    text-align: center;
+    
+    h1 {
+        margin-bottom: 2em;
+    }
+    section.meilleursScores {
+        margin: 50px;
+    }
 }
 
+/******************** Play page ********************/
 #play {
     h1 {
         text-align: center;
+        margin-bottom: $smallMargin;
     }
     .game-wrapper {
         width: 700px;
         height: min-content;
-        min-height: 700px;
+        // min-height: 700px;
         background-color: $darkGreen;
+        border: 10px solid $yellow;
         margin-left: auto;
         margin-right: auto;
         padding: 20px;
@@ -46,21 +99,16 @@ $borderColor: black;
         .timer {
             #bar {
                 width: 95%;
-                border: solid 1px $borderColor;
-                background-color: #fff;;
+                border: solid 1px inherit;
+                background-color: $white;;
 
                 .innerBar {
                     height: 15px;
                     animation: countdown;
                     animation-iteration-count: 1;
                     animation-fill-mode: forwards;
-                    animation-timing-function: linear;
-                                    
-                        
-                    }
-
-                    
-                
+                    animation-timing-function: linear;                                                           
+                    }               
             }
         }
 
@@ -72,8 +120,8 @@ $borderColor: black;
 
             .card {
                 position: relative;
-                width: 10%;
-                height: 64px;
+                width: 13%;
+                height: 100px;
                 margin: 10px;
                 transform-style: preserve-3d;
                 transition: transform 0.5s;
@@ -97,17 +145,42 @@ $borderColor: black;
                 }
                 .card-front {
                     background: $lightGreen;
-                    
+                    border: 4.5px solid $white;                    
                 }
             }
-        }
-        
+            button {
+                color: inherit;
+                background-color: inherit;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }        
     }
     .success {
+        text-align: center;
         display: none;
+        margin-top: 50px;
+        background-color: $yellow;
+        padding: $smallMargin;
+        color: $black;
+        border: 10px solid $red;
+        margin-bottom: $smallMargin;
     }
     .failure {
         display: none;
+    }
+}
+
+/***************** Page meilleurs scores *************/ 
+.score {
+    margin: 50px;
+    text-align: center;
+    padding: 15%;
+    background-color: $red;
+    border: 10px solid $yellow;
+
+    h1 {
+        margin-bottom: $smallMargin;
     }
 }
 

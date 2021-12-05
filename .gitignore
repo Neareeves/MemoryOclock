@@ -2,3 +2,4 @@
 /Vendors/
 /.sass-cache/*
 /node_modules/
+/Models/database.php

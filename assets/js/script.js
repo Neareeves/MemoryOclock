@@ -11,10 +11,13 @@ let timer = 1;
 let hasWon = false;
 trigger.style.display = "block";
 
-// gestion du temps
+// gestion du temps écrit
 function displayFlyingTime() {
     let timePlace = document.querySelector('.text');
-    timePlace.innerHTML = timer + ' secondes';
+    let minutes = Math.floor(timer / 60)+' min ';
+    let writtenTime = timer - minutes * 60+' s';
+    timePlace.innerHTML = writtenTime;
+    console.log(writtenTime, minutes);
     timer++;
 }
 
@@ -60,7 +63,7 @@ function getReadyForNewTry() {
         card1.classList.remove('turnAround');
         card2.classList.remove('turnAround');
         deckReinitialisation();
-    }, 1000);
+    }, 700);
 }
 
 // Réinitialisation du deck pour pouvoir retourner et comparer les deux cartes suivantes
@@ -89,13 +92,14 @@ function checkIfCardMatch() {
         
         // S'il ne reste plus de carte possédant encore la classe "hidden", le jeu est fini.
         if (stillHidden.length === 0) {
-
+        document.getElementById('scoreInput').value = timer;
             result.innerHTML = 'Bravo, vous avez résolu le jeu dans le temps imparti, en ' + timer + ' secondes.';
             document.querySelector('.success').style.display = 'block';
             hasWon = true;
             // then stopper le chrono
             document.getElementById('bar').style.display= 'none';
-            scoreInput = timer;
+
+            console.log(scoreInput);
 
             //store score inside hidden input
             
@@ -138,11 +142,12 @@ function makeProgressBar(duration, callback) {
 
 // Le temps est lancé lorsque le joueur clique sur le bouton de lancement du jeu (trigger).
 trigger.addEventListener('click', function () {
-    makeProgressBar('40s', function () {
+    makeProgressBar('80s', function () {
         // has won ? et sinon, displya none la bar
         // un setinterval pour récupérer la valeur de haswon régulièrement ?
         if (!hasWon) {
             alert('sorry, you\'ve lost');
+            document.getElementsByClassName('failure').style.display = 'block';
         }
     });
 })

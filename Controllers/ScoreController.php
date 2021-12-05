@@ -2,13 +2,15 @@
 include('Models/Score.php');
 
 if (isset($_POST['validate'])) {
-    echo 'entered in post things';
-    $score = $_POST['score'];
-    $owner = $_POST['owner'];
+    
+    $score = stripslashes(htmlspecialchars($_POST['score']));
+    $owner = stripslashes(htmlspecialchars($_POST['owner']));
 
     $storeScore = storeLastScore($score, $owner);
 
-
+    $lastRegisteredScore = getLastRegisteredScore();
+    
 }
+$bestScoresEver = getBestScoresEver();
 
 include('Views/ScoreView.php');

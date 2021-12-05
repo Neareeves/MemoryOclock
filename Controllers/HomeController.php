@@ -1,7 +1,8 @@
 <?php
 //le controlleur inclut le ou les modèles
-include('Models/connexion.php');
+include('Models/Score.php');
 
+$bestScoresEver = getBestScoresEver();
 
 
 
