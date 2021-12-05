@@ -1,5 +1,4 @@
 .env
-/Vendors/
 /.sass-cache/*
-/node_modules/
-/Models/database.php
+node_modules/
+Models/database.php
