@@ -45,7 +45,7 @@ body {
 }
 
 .page-wrapper {
-    padding-top: 50px;
+    padding-top: 35px;
 }
 
 .turnAround {
@@ -73,10 +73,11 @@ body {
         margin-bottom: 2em;
     }
     section.meilleursScores {
-        margin: 30px;
+        margin: 30px auto 0 auto;
         padding: 15%;
         background-color: $red;
         border: 10px solid $yellow;
+        width: fit-content;
         a {
             margin-top: $smallMargin;
         }
@@ -92,12 +93,11 @@ body {
     .game-wrapper {
         width: 700px;
         height: min-content;
-        // min-height: 700px;
         background-color: $darkGreen;
         border: 10px solid $yellow;
         margin-left: auto;
         margin-right: auto;
-        padding: 20px;
+        padding: 14px;
 
         .timer {
             #bar {
@@ -125,7 +125,7 @@ body {
                 position: relative;
                 width: 13%;
                 height: 100px;
-                margin: 10px;
+                margin: 7px;
                 transform-style: preserve-3d;
                 transition: transform 0.5s;
 
@@ -151,13 +151,13 @@ body {
                     border: 4.5px solid $white;
                 }
             }
-            button {
-                color: inherit;
-                background-color: inherit;
-                margin-left: auto;
-                margin-right: auto;
-            }
         }
+    }
+    .btn {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: fit-content;
     }
     .success {
         text-align: center;

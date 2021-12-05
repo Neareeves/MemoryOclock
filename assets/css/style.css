@@ -29,7 +29,7 @@ body {
   transform: scale(1.05); }
 
 .page-wrapper {
-  padding-top: 50px; }
+  padding-top: 35px; }
 
 .turnAround {
   -webkit-transform: rotateY(180deg);
@@ -49,10 +49,11 @@ body {
   .home h1 {
     margin-bottom: 2em; }
   .home section.meilleursScores {
-    margin: 30px;
+    margin: 30px auto 0 auto;
     padding: 15%;
     background-color: #804055;
-    border: 10px solid #d99d62; }
+    border: 10px solid #d99d62;
+    width: fit-content; }
     .home section.meilleursScores a {
       margin-top: 20px; }
 
@@ -67,7 +68,7 @@ body {
   border: 10px solid #d99d62;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px; }
+  padding: 14px; }
   #play .game-wrapper .timer #bar {
     width: 95%;
     border: solid 1px inherit;
@@ -87,7 +88,7 @@ body {
       position: relative;
       width: 13%;
       height: 100px;
-      margin: 10px;
+      margin: 7px;
       transform-style: preserve-3d;
       transition: transform 0.5s; }
       #play .game-wrapper .inside-wrapper .card:active {
@@ -106,11 +107,11 @@ body {
       #play .game-wrapper .inside-wrapper .card .card-front {
         background: #d99d62;
         border: 4.5px solid #fff2d9; }
-    #play .game-wrapper .inside-wrapper button {
-      color: inherit;
-      background-color: inherit;
-      margin-left: auto;
-      margin-right: auto; }
+#play .btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: fit-content; }
 #play .success {
   text-align: center;
   display: none;

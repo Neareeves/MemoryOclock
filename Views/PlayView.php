@@ -34,7 +34,10 @@
         </div>
         <div class="timer">
             <div id="bar"></div>
-            <div class="text"></div>
+            <div>
+            Temps de jeu :
+                <div class="text"></div>
+            </div>
         </div>
     </div>
     <a href="/memory/" class="btn">Retour à l'accueil</a>
