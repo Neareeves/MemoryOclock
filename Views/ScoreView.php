@@ -17,7 +17,7 @@
             echo $score['Score'] . ' secondes, réalisé par ' . $score['Owner'] . '<br>';
         }; ?>
     </div>
-    <a href="/?page=play" class="btn">Nouvelle partie</a>
+    <a href="play" class="btn">Nouvelle partie</a>
 </div>
 
 <?php include "Footer.php"; ?>
