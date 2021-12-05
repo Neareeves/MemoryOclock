@@ -25,7 +25,7 @@ body {
 
 .btn:hover {
   background-color: #d99d62;
-  transition: .5s ease;
+  transition: 0.5s ease;
   transform: scale(1.05); }
 
 .page-wrapper {
@@ -49,7 +49,12 @@ body {
   .home h1 {
     margin-bottom: 2em; }
   .home section.meilleursScores {
-    margin: 50px; }
+    margin: 30px;
+    padding: 15%;
+    background-color: #804055;
+    border: 10px solid #d99d62; }
+    .home section.meilleursScores a {
+      margin-top: 20px; }
 
 /******************** Play page ********************/
 #play h1 {
@@ -127,6 +132,8 @@ body {
   border: 10px solid #d99d62; }
   .score h1 {
     margin-bottom: 20px; }
+  .score h4 {
+    margin-top: 20px; }
 
 /************Media queries*********/
 

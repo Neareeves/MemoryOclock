@@ -4,7 +4,7 @@ include('connexion.php');
 
 function getBestScoresEver() {
     global $dbh;
-    $stmt = $dbh->prepare('SELECT * FROM Score ORDER BY     score ASC LIMIT 10');
+    $stmt = $dbh->prepare('SELECT * FROM Score ORDER BY     score ASC LIMIT 5');
     $stmt->execute();
     $bestScores = $stmt->fetchAll();
     return $bestScores;

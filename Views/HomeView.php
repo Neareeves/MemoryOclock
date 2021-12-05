@@ -4,7 +4,7 @@
 
     <h1>Jeu de mémoire</h1>
 
-    <div>Associez toutes les paires de cartes avant la fin du chrono. Vous avez 1 min 30.</div>
+    <div>Associez toutes les paires de cartes avant la fin du chrono. <br> Vous avez 1 min 30.</div>
     <a href="/memory/?page=play" class="btn">Nouveau jeu</a> <br>
 
     <section class="meilleursScores">
@@ -14,8 +14,8 @@
         echo $score['Score'].' secondes, réalisé par '.$score['Owner'].'<br>'; 
     }
     ;?>
-    </section>
     <a href="" class="btn">Consulter les scores</a>
+    </section>
 </div>
     
 

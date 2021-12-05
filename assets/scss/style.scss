@@ -40,15 +40,13 @@ body {
 
 .btn:hover {
     background-color: $buttonHoverBackground;
-    transition: .5s ease;
+    transition: 0.5s ease;
     transform: scale(1.05);
 }
 
 .page-wrapper {
     padding-top: 50px;
 }
-
-
 
 .turnAround {
     -webkit-transform: rotateY(180deg);
@@ -67,16 +65,21 @@ body {
     }
 }
 
-
-/******************* Home page *****************/ 
+/******************* Home page *****************/
 .home {
     text-align: center;
-    
+
     h1 {
         margin-bottom: 2em;
     }
     section.meilleursScores {
-        margin: 50px;
+        margin: 30px;
+        padding: 15%;
+        background-color: $red;
+        border: 10px solid $yellow;
+        a {
+            margin-top: $smallMargin;
+        }
     }
 }
 
@@ -100,15 +103,15 @@ body {
             #bar {
                 width: 95%;
                 border: solid 1px inherit;
-                background-color: $white;;
+                background-color: $white;
 
                 .innerBar {
                     height: 15px;
                     animation: countdown;
                     animation-iteration-count: 1;
                     animation-fill-mode: forwards;
-                    animation-timing-function: linear;                                                           
-                    }               
+                    animation-timing-function: linear;
+                }
             }
         }
 
@@ -145,7 +148,7 @@ body {
                 }
                 .card-front {
                     background: $lightGreen;
-                    border: 4.5px solid $white;                    
+                    border: 4.5px solid $white;
                 }
             }
             button {
@@ -154,7 +157,7 @@ body {
                 margin-left: auto;
                 margin-right: auto;
             }
-        }        
+        }
     }
     .success {
         text-align: center;
@@ -171,7 +174,7 @@ body {
     }
 }
 
-/***************** Page meilleurs scores *************/ 
+/***************** Page meilleurs scores *************/
 .score {
     margin: 50px;
     text-align: center;
@@ -181,6 +184,9 @@ body {
 
     h1 {
         margin-bottom: $smallMargin;
+    }
+    h4 {
+        margin-top: $smallMargin;
     }
 }
 

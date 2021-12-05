@@ -14,10 +14,9 @@ trigger.style.display = "block";
 // gestion du temps écrit
 function displayFlyingTime() {
     let timePlace = document.querySelector('.text');
-    let minutes = Math.floor(timer / 60)+' min ';
-    let writtenTime = timer - minutes * 60+' s';
-    timePlace.innerHTML = writtenTime;
-    console.log(writtenTime, minutes);
+    let minutes = Math.floor(timer / 60);
+    let secondes = timer - minutes * 60;
+    timePlace.innerHTML = secondes+' s '+minutes+' min';
     timer++;
 }
 

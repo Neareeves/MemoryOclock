@@ -4,9 +4,9 @@
     <h1>Les meilleurs scores</h1>
     <?php
     if (!empty($lastRegisteredScore)) { ?>
-        <div>Vous avez fait le score de
+        <div>Vous avez fini le jeu en 
 
-            <?php echo $lastRegisteredScore["Score"]; ?>
+            <?php echo $score; ?>
 
         </div>
     <?php    }; ?>
