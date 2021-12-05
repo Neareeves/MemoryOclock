@@ -11,13 +11,13 @@
         </div>
     <?php    }; ?>
     <div>
-        <h4>Voici les dix meilleurs scores de tous les temps</h4>
+        <h4>Voici les cinq meilleurs scores de tous les temps</h4>
         <?php
         foreach ($bestScoresEver as $score) {
             echo $score['Score'] . ' secondes, réalisé par ' . $score['Owner'] . '<br>';
         }; ?>
     </div>
-    <a href="/memory/?page=play" class="btn">Nouvelle partie</a>
+    <a href="/?page=play" class="btn">Nouvelle partie</a>
 </div>
 
 <?php include "Footer.php"; ?>
