@@ -1,29 +1,31 @@
-const deck = document.getElementById('inside-wrapper');
+// cards récupère toutes les cartes, c'est-à-dire les div qui ont la classe "card"
 const cards = document.querySelectorAll('.card');
+// trigger récupère le bouton sur lequel il faut cliquer pour lancer le chrono et la partie
 const trigger = document.getElementById('trigger');
+// result récupère l'élément html dans lequel figurera le score si le joueur gagne la partie
 const result = document.getElementById('result');
+// storeInput récupère un input hidden dans lequel sera stockée le score si le joueur gagne, et qui sera envoyé avec le reste du formulaire pour être stocké dans la page de données.
 const storeInput = document.getElementById('scoreInput').value;
+
+// les variables ci-dessous sont des switchs. Càd qu'elles permettent de suivre un état (ex. une carte est retournée, le chrono est lancé, le joueur a gagné...). On commence le jeu par les initialiser en leur assignant une valeur "false".
+// isTriggered marque le lancement du chronomètre et le début du jeu.
 let isTriggered = false;
-let hasSomeCardTurned = false;
+let isOneCardFlipped = false;
+let alreadyTwoCardsFliped = false;
+// card1 et card2 représentent deux cartes retournées
 let card1, card2;
-let enoughClicks = false;
+// le timer va comptabiliser le temps, seconde après seconde
 let timer = 1;
+// hasWon indiquera en passant à true que le joueur a gagné
 let hasWon = false;
 trigger.style.display = "block";
 
-// gestion du temps écrit
-function displayFlyingTime() {
-    let timePlace = document.querySelector('.text');
-    let minutes = Math.floor(timer / 60);
-    let secondes = timer - minutes * 60;
-    timePlace.innerHTML = secondes+' s '+minutes+' min';
-    timer++;
-}
+
 
 // Retourner une carte
-function turnAround() {
+function flipCard() {
     // Vérifie que deux cartes maximum ont été retournées
-    if (enoughClicks) {
+    if (alreadyTwoCardsFliped) {
         return;
     }
     // Vérifie que le joueur n'a pas recliqué sur la même carte
@@ -37,26 +39,26 @@ function turnAround() {
     // On ajoute la classe qui apporte l'animation de retournement de la carte
     this.classList.add('turnAround');
     // On enregistre le fait qu'une première carte a été retournée et on la stocke dans la variable card1
-    if (!hasSomeCardTurned) {
-        hasSomeCardTurned = true;
+    if (!isOneCardFlipped) {
+        isOneCardFlipped = true;
         card1 = this;
         return;
     }
-    // Si la première carte existe déjà, on stocke la seconde retournée dans la variable card2, puis on stocke le fait que le maximum autorisé de deux cartes découvertes à la fois a été atteint
+    // Si la première carte existe déjà, on stocke la seconde carte retournée dans la variable card2, puis on stocke le fait que le maximum autorisé de deux cartes découvertes à la fois a été atteint
     card2 = this;
-    hasSomeCardTurned = false;
-    enoughClicks = true;
+    isOneCardFlipped = false;
+    alreadyTwoCardsFliped = true;
 
-    checkIfCardMatch();
+    checkIfCardsMatch();
 }
-
+// cette fonction empêche de retourner plus de carte
 function disableFlipping() {
-    card1.removeEventListener('click', turnAround);
-    card2.removeEventListener('click', turnAround);
+    card1.removeEventListener('click', flipCard);
+    card2.removeEventListener('click', flipCard);
     deckReinitialisation();
 }
 
-// Au bout d'un certain temps, on replace les cartes retournées face cachée en retirant la classe css "turnAround" et lançant la fonction de réinitialisation du deck
+// Au bout d'un certain temps, on replace les cartes retournées face cachée en retirant la classe css "turnAround" et lançant la fonction de réinitialisation du deck (on remet les cartes face cachée). On utilise setTimeout pour mettre un délai avant l'execution de la fonction et laisser au joueur le temps de se rappeler des cartes.
 function getReadyForNewTry() {
     setTimeout(() => {
         card1.classList.remove('turnAround');
@@ -70,12 +72,12 @@ function getReadyForNewTry() {
 function deckReinitialisation() {
     card1 = null;
     card2 = null;
-    hasSomeCardTurned = false;
-    enoughClicks = false;
+    isOneCardFlipped = false;
+    alreadyTwoCardsFliped = false;
 }
 
 // Validation de la paire de cartes retournées
-function checkIfCardMatch() {
+function checkIfCardsMatch() {
     // si card1 possède la même valeur dans la propriété data-flip que card2 :
     if (card1.dataset.flip === card2.dataset.flip) {
         // Alors la paire est validée
@@ -98,9 +100,7 @@ function checkIfCardMatch() {
             // then stopper le chrono
             document.getElementById('bar').style.display= 'none';
 
-            console.log(scoreInput);
 
-            //store score inside hidden input
             
         }
         return;
@@ -108,6 +108,18 @@ function checkIfCardMatch() {
         //console.log('it\'s not a match!');
     }
     getReadyForNewTry();
+}
+
+
+// gestion du temps
+
+// gestion de l'affichage du temps qui passe
+function displayFlyingTime() {
+    let timePlace = document.querySelector('.text');
+    let minutes = Math.floor(timer / 60);
+    let secondes = timer - minutes * 60;
+    timePlace.innerHTML = minutes+' min'+secondes+' s ';
+    timer++;
 }
 
 // gestion de la barre de progression 
@@ -142,9 +154,9 @@ function makeProgressBar(duration, callback) {
 // Le temps est lancé lorsque le joueur clique sur le bouton de lancement du jeu (trigger).
 trigger.addEventListener('click', function () {
     makeProgressBar('80s', function () {
-        // has won ? et sinon, displya none la bar
-        // un setinterval pour récupérer la valeur de haswon régulièrement ?
+        // si à la fin du temps, le joueur n'a pas gagné :
         if (!hasWon) {
+            disableFlipping();
             alert('sorry, you\'ve lost');
             document.getElementsByClassName('failure').style.display = 'block';
         }
@@ -155,5 +167,5 @@ trigger.addEventListener('click', function () {
 
 
 cards.forEach(card => {
-    card.addEventListener('click', turnAround);
+    card.addEventListener('click', flipCard);
 });
