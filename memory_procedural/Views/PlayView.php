@@ -13,7 +13,7 @@
         </form>
 
     </div>
-    <div class="failure">
+    <div class="failure center">
         <div>Vous avez perdu</div>
         <a href="play" class="btn">Je retente ma chance</a>
         <a href="/home" class="btn">Retour à la page d'accueil</a>

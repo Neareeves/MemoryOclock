@@ -52,7 +52,9 @@ body {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
-
+.center {
+    text-align: center;
+}
 /****************** Animations **************/
 @keyframes countdown {
     0% {

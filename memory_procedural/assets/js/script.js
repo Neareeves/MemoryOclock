@@ -53,6 +53,7 @@ function flipCard() {
 }
 // cette fonction empêche de retourner plus de carte
 function disableFlipping() {
+
     card1.removeEventListener('click', flipCard);
     card2.removeEventListener('click', flipCard);
     deckReinitialisation();
@@ -97,11 +98,9 @@ function checkIfCardsMatch() {
             result.innerHTML = 'Bravo, vous avez résolu le jeu dans le temps imparti, en ' + timer + ' secondes.';
             document.querySelector('.success').style.display = 'block';
             hasWon = true;
-            // then stopper le chrono
+            // then stopper le chrono aleth
             document.getElementById('bar').style.display= 'none';
-
-
-            
+          
         }
         return;
     } else {
@@ -156,16 +155,17 @@ trigger.addEventListener('click', function () {
     makeProgressBar('80s', function () {
         // si à la fin du temps, le joueur n'a pas gagné :
         if (!hasWon) {
-            disableFlipping();
             alert('sorry, you\'ve lost');
-            document.getElementsByClassName('failure').style.display = 'block';
+            isTriggered = false;
+            clearInterval(setInterval(displayFlyingTime, 1000));
+            document.querySelector('.failure').style.display = 'block';
         }
     });
 })
 
 
 
-
+// écouteur d'évenement sur les cartes : au click, il applique la fonction flipCard()
 cards.forEach(card => {
     card.addEventListener('click', flipCard);
 });
