@@ -7,7 +7,9 @@ const result = document.getElementById('result');
 // storeInput récupère un input hidden dans lequel sera stockée le score si le joueur gagne, et qui sera envoyé avec le reste du formulaire pour être stocké dans la page de données.
 const storeInput = document.getElementById('scoreInput').value;
 
-// les variables ci-dessous sont des switchs. Càd qu'elles permettent de suivre un état (ex. une carte est retournée, le chrono est lancé, le joueur a gagné...). On commence le jeu par les initialiser en leur assignant une valeur "false".
+// les variables ci-dessous sont des switchs. Càd qu'elles permettent de suivre un état 
+//(ex. une carte est retournée, le chrono est lancé, le joueur a gagné...). 
+// On commence le jeu par les initialiser en leur assignant une valeur "false".
 // isTriggered marque le lancement du chronomètre et le début du jeu.
 let isTriggered = false;
 let isOneCardFlipped = false;
@@ -44,6 +46,7 @@ function flipCard() {
         card1 = this;
         return;
     }
+
     // Si la première carte existe déjà, on stocke la seconde carte retournée dans la variable card2, puis on stocke le fait que le maximum autorisé de deux cartes découvertes à la fois a été atteint
     card2 = this;
     isOneCardFlipped = false;
@@ -51,7 +54,8 @@ function flipCard() {
 
     checkIfCardsMatch();
 }
-// cette fonction empêche de retourner plus de carte
+
+// Cette fonction empêche de retourner plus de carte
 function disableFlipping() {
 
     card1.removeEventListener('click', flipCard);
@@ -91,19 +95,22 @@ function checkIfCardsMatch() {
         // Il faut maintenant tester si cette paire est la dernière à être découverte, et donc, si le jeu est terminé ou non.
         // On comptabilise le nombre de cartes qui ont encore leur classe "hidden", et qui n'ont donc pas encore été validées.
         let stillHidden = document.querySelectorAll('.hidden');
-        
+
         // S'il ne reste plus de carte possédant encore la classe "hidden", le jeu est fini.
         if (stillHidden.length === 0) {
-        document.getElementById('scoreInput').value = timer;
-        result.innerHTML = 'Bravo, vous avez résolu le jeu dans le temps imparti, en ' + timer + ' secondes.';
+
+            // On bloque le passage du temps et on montre à l'utilisateur la div .success
+            document.getElementById('scoreInput').value = timer;
+            result.innerHTML = 'Bravo, vous avez résolu le jeu dans le temps imparti, en ' + timer + ' secondes.';
             document.querySelector('.success').style.display = 'block';
             hasWon = true;
-            // then stopper le chrono aleth
-            document.getElementById('bar').style.display= 'none';
-          
+            // On cache le chronomètre puisqu'il n'a plus lieu d'être, le jeu est arrêté
+            document.getElementById('bar').style.display = 'none';
+
         }
         return;
     } else {
+        // Les deux cartes retournées ne vont pas par paire
         //console.log('it\'s not a match!');
     }
     getReadyForNewTry();
@@ -121,10 +128,10 @@ function displayFlyingTime() {
         let timePlace = document.querySelector('.text');
         let minutes = Math.floor(timer / 60);
         let secondes = timer - minutes * 60;
-        timePlace.innerHTML = minutes+' min '+secondes+' s ';
+        timePlace.innerHTML = minutes + ' min ' + secondes + ' s ';
         timer++;
     } else {
-        
+
         return;
     }
 }
@@ -133,19 +140,19 @@ function displayFlyingTime() {
 function makeProgressBar(duration, callback) {
     // On récupère l'élément dans lequel sera installée la barre
     const progressBar = document.getElementById('bar');
-    
+
     // Le temps est lancé, le jeu peut commencer. On peut cacher le bouton de lancement.
     isTriggered = true;
     trigger.style.display = 'none';
-    
-    
+
+
     // à l'intérieur, on crée une autre div
     const innerBar = document.createElement('div');
     innerBar.className = 'innerBar';
-    
+
     // Fixe la durée du chrono
     innerBar.style.animationDuration = duration;
-    
+
     // On prévoit d'exécuter une fonction lors de la fin de l'animation, c'est-à-dire lorsque le temps (duration) fixé en paramètre de la fonction sera écoulé.
     if (typeof (callback) === 'function') {
         innerBar.addEventListener('animationend', callback);
@@ -155,7 +162,7 @@ function makeProgressBar(duration, callback) {
     // On lance l'animation de la barre, et l'affichage du temps, mis à jour chaque seconde grâce à setInterval()
     innerBar.style.animationPlayState = 'running';
     setInterval(displayFlyingTime, 1000);
-    
+
 }
 
 // Le temps est lancé lorsque le joueur clique sur le bouton de lancement du jeu (trigger).
@@ -166,8 +173,7 @@ trigger.addEventListener('click', function () {
             alert('Oh non! Il semble que vous ayez perdu :(');
             // On repasse la gâchette à false pour empêcher de retourner d'autres cartes et finir le jeu, on fait apparaître une div à l'utilisateur et on stoppe le passage du temps.
             isTriggered = false;
-            
-            // aleth ne fonctionne pas
+
             document.getElementById('fullTimePlace').style.display = "none";
             document.querySelector('.failure').style.display = 'block';
         }
