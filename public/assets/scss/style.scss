@@ -1,0 +1,237 @@
+/********************** Général *****************************/
+/* colors */
+$darkGreen: #804055;
+$lightGreen: #d99d62;
+$borderColor: black;
+$buttonBackground: #fff2d9;
+$buttonHoverBackground: #d99d62;
+$black: #171726;
+$red: #804055;
+$yellow: #d99d62;
+$white: #fff2d9;
+$lightwhite: rgba(255, 243, 219, 0.16);
+/* distances */
+$smallMargin: 20px;
+$mediumMargin: 40px;
+
+/* règles générales */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: $black;
+    color: $white;
+    font-family: "Press Start 2P", "sans-serif";
+}
+
+.btn {
+    text-decoration: none;
+    color: inherit;
+    padding: 15px 20px;
+    background-color: $buttonBackground;
+    display: inline-block;
+    margin: 5px;
+    color: $black;
+    border-radius: 3px;
+    font-family: "Press Start 2P", "sans-serif";
+}
+
+.btn:hover {
+    background-color: $buttonHoverBackground;
+    transition: 0.5s ease;
+    transform: scale(1.05);
+}
+input {
+    font-family: "Press Start 2P", "sans-serif";
+}
+
+.page-wrapper {
+    padding-top: 35px;
+}
+
+.turnAround {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.center {
+    text-align: center;
+}
+.margin2 {
+    margin-top: $mediumMargin;
+    margin-bottom: $mediumMargin;
+}
+/****************** Animations **************/
+@keyframes countdown {
+    0% {
+        width: 100%;
+        background: $darkGreen;
+    }
+    100% {
+        width: 0%;
+        background: $lightGreen;
+    }
+}
+
+/******************* Home page *****************/
+.home {
+    text-align: center;
+
+    h1 {
+        margin-bottom: 2em;
+    }
+    section.meilleursScores {
+        margin: 30px auto 0 auto;
+        padding: 15%;
+        background-color: $red;
+        border: 10px solid $yellow;
+        width: fit-content;
+        a {
+            margin-top: $smallMargin;
+        }
+    }
+}
+
+/******************** Play page ********************/
+#play {
+    h1 {
+        text-align: center;
+        margin-bottom: $smallMargin;
+    }
+    .game-wrapper {
+        width: 700px;
+        height: min-content;
+        background-color: $darkGreen;
+        border: 10px solid $yellow;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 14px;
+        margin-bottom: 15px;
+
+        .timer {
+            #bar {
+                width: 95%;
+                border: solid 1px inherit;
+                background-color: $white;
+                box-shadow: inset 0 0 10px white, inset 10px 0 15px $red, inset -10px 0 15px $yellow,
+                    inset 10px 0 30px $red, inset -10px 0 30px $yellow, 0 0 10px white, -10px 0 15px$red,
+                    10px 0 15px $yellow;
+
+                .innerBar {
+                    height: 15px;
+                    animation: countdown;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                    animation-timing-function: linear;
+                }
+            }
+        }
+
+        .inside-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            perspective: 1000px;
+            justify-content: center;
+
+            .card {
+                position: relative;
+                width: 13%;
+                height: 100px;
+                margin: 7px;
+                transform-style: preserve-3d;
+                transition: transform 0.5s;
+
+                &:active {
+                    transform: scale(0.9);
+                    transition: transform 0.5s;
+                }
+                & > div {
+                    backface-visibility: hidden;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    padding: 5px;
+                }
+
+                .card-back {
+                    object-fit: cover;
+                    transform: rotateY(180deg);
+                    background-position: center;
+                }
+                .card-front {
+                    background: $lightGreen;
+                    border: 4.5px solid $white;
+                }
+            }
+        }
+    }
+    .btn {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: fit-content;
+    }
+    .success {
+        text-align: center;
+        display: none;
+        margin-top: 50px;
+        background-color: $yellow;
+        padding: $smallMargin;
+        color: $black;
+        border: 10px solid $red;
+        margin-bottom: $smallMargin;
+        max-width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .failure {
+        display: none;
+        background-color: $yellow;
+        padding: $smallMargin;
+        color: $black;
+        width: fit-content;
+        margin-right: auto;
+        margin-left: auto;
+        border: 10px solid $red;
+        margin-bottom: 20px;
+    }
+}
+
+/***************** Page meilleurs scores *************/
+.score {
+    margin: 50px;
+    text-align: center;
+    padding: 15%;
+    background-color: $red;
+    border: 10px solid $yellow;
+
+    h1 {
+        margin-top: 60px;
+        margin-bottom: $smallMargin;
+    }
+    h4 {
+        margin-top: 50px;
+        margin-bottom: $smallMargin;
+    }
+    a {
+        margin-top: $smallMargin;
+    }
+}
+
+/************Media queries*********/
+
+@media all and (max-width: 1200px) {
+}
+
+@media all and (max-width: 991px) {
+}
+
+@media all and (max-width: 767px) {
+}
+
+@media all and (max-width: 567px) {
+}

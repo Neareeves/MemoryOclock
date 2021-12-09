@@ -1,0 +1,170 @@
+@charset "UTF-8";
+/********************** Général *****************************/
+/* colors */
+/* distances */
+/* règles générales */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: sans-serif;
+  background-color: #171726;
+  color: #fff2d9;
+  font-family: "Press Start 2P", "sans-serif"; }
+
+.btn {
+  text-decoration: none;
+  color: inherit;
+  padding: 15px 20px;
+  background-color: #fff2d9;
+  display: inline-block;
+  margin: 5px;
+  color: #171726;
+  border-radius: 3px;
+  font-family: "Press Start 2P", "sans-serif"; }
+
+.btn:hover {
+  background-color: #d99d62;
+  transition: 0.5s ease;
+  transform: scale(1.05); }
+
+input {
+  font-family: "Press Start 2P", "sans-serif"; }
+
+.page-wrapper {
+  padding-top: 35px; }
+
+.turnAround {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+.center {
+  text-align: center; }
+
+.margin2 {
+  margin-top: 40px;
+  margin-bottom: 40px; }
+
+/****************** Animations **************/
+@keyframes countdown {
+  0% {
+    width: 100%;
+    background: #804055; }
+  100% {
+    width: 0%;
+    background: #d99d62; } }
+/******************* Home page *****************/
+.home {
+  text-align: center; }
+  .home h1 {
+    margin-bottom: 2em; }
+  .home section.meilleursScores {
+    margin: 30px auto 0 auto;
+    padding: 15%;
+    background-color: #804055;
+    border: 10px solid #d99d62;
+    width: fit-content; }
+    .home section.meilleursScores a {
+      margin-top: 20px; }
+
+/******************** Play page ********************/
+#play h1 {
+  text-align: center;
+  margin-bottom: 20px; }
+#play .game-wrapper {
+  width: 700px;
+  height: min-content;
+  background-color: #804055;
+  border: 10px solid #d99d62;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 14px;
+  margin-bottom: 15px; }
+  #play .game-wrapper .timer #bar {
+    width: 95%;
+    border: solid 1px inherit;
+    background-color: #fff2d9;
+    box-shadow: inset 0 0 10px white, inset 10px 0 15px #804055, inset -10px 0 15px #d99d62, inset 10px 0 30px #804055, inset -10px 0 30px #d99d62, 0 0 10px white, -10px 0 15px #804055, 10px 0 15px #d99d62; }
+    #play .game-wrapper .timer #bar .innerBar {
+      height: 15px;
+      animation: countdown;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear; }
+  #play .game-wrapper .inside-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    justify-content: center; }
+    #play .game-wrapper .inside-wrapper .card {
+      position: relative;
+      width: 13%;
+      height: 100px;
+      margin: 7px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s; }
+      #play .game-wrapper .inside-wrapper .card:active {
+        transform: scale(0.9);
+        transition: transform 0.5s; }
+      #play .game-wrapper .inside-wrapper .card > div {
+        backface-visibility: hidden;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        padding: 5px; }
+      #play .game-wrapper .inside-wrapper .card .card-back {
+        object-fit: cover;
+        transform: rotateY(180deg);
+        background-position: center; }
+      #play .game-wrapper .inside-wrapper .card .card-front {
+        background: #d99d62;
+        border: 4.5px solid #fff2d9; }
+#play .btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: fit-content; }
+#play .success {
+  text-align: center;
+  display: none;
+  margin-top: 50px;
+  background-color: #d99d62;
+  padding: 20px;
+  color: #171726;
+  border: 10px solid #804055;
+  margin-bottom: 20px;
+  max-width: 90%;
+  margin-right: auto;
+  margin-left: auto; }
+#play .failure {
+  display: none;
+  background-color: #d99d62;
+  padding: 20px;
+  color: #171726;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  border: 10px solid #804055;
+  margin-bottom: 20px; }
+
+/***************** Page meilleurs scores *************/
+.score {
+  margin: 50px;
+  text-align: center;
+  padding: 15%;
+  background-color: #804055;
+  border: 10px solid #d99d62; }
+  .score h1 {
+    margin-top: 60px;
+    margin-bottom: 20px; }
+  .score h4 {
+    margin-top: 50px;
+    margin-bottom: 20px; }
+  .score a {
+    margin-top: 20px; }
+
+/************Media queries*********/
+
+/*# sourceMappingURL=style.css.map */
