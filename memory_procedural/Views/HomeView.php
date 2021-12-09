@@ -1,4 +1,7 @@
 <?php include("Head.php"); ?>
+<!-- Dans toutes les vues, on inclue un header et un footer commun.
+Cela permet d'ajouter des librairies sur toutes les vues en même temps, 
+ou au contraire d'inclure des fichiers particuliers dans certaines vues -->
 
 <div class="page-wrapper home">
 

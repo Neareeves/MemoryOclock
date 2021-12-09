@@ -2,16 +2,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="" />
+	<meta name="description" content=Jeu du memory"" />
 	<meta name="viewport" content="initial-scale=1">
 
 	<!-- meta socials -->
-	<meta property="og:title" content="" />
-	<meta property="og:type" content="" />
-	<meta property="og:url" content="http://localhost" />
-	<meta property="og:image" content="" />
+	<meta property="og:title" content="Jeu du memory" />
+	<meta property="og:type" content="Jeu" />
+	<meta property="og:url" content="http://memory.aleth.online" />
 
-	<title></title>
+
+	<title>Jeu du Memory</title>
 
 	<!-- styles -->
 

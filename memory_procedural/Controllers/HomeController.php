@@ -1,13 +1,10 @@
 <?php
-//le controlleur inclut le ou les modèles
+// Le controller inclut le ou les modèles
 include('Models/Score.php');
 
+// On stocke le résultat de la fonction getBestScoresEver() dans une variable qu'on récupèrera dans la vue
 $bestScoresEver = getBestScoresEver();
 
-
-
-
-
-//inclusion de la vue
+// Puis inclut la vue
 include('Views/HomeView.php');
 ?>

@@ -3,7 +3,7 @@
 <div class="page-wrapper score">
     <h1>Les meilleurs scores</h1>
     <?php
-    if (!empty($lastRegisteredScore)) { ?>
+    if (!empty($score)) { ?>
         <div>Vous avez fini le jeu en 
 
             <?php echo $score; ?>
