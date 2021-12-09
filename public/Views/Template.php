@@ -22,6 +22,8 @@
 </head>
 <body>
 
+<!-- Ce fichier est la base de tous les autres templates, qui viendront se placer à la place de "$content".
+Cela permet de faire des modification de menu, footer, ou bien ajouter des librairies à tous les templates en même temps -->
 <?php echo $content; ?>
 
 

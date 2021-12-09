@@ -1,6 +1,8 @@
+# Le fichier htaccess permet de rentre les url plus esthétiques
+# Au lieu d'écrire index.php/?url=url, on pourra écrire /url directement
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
-#RewriteBase /memory/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [NC,L,QSA]

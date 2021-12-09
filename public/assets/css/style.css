@@ -2,7 +2,7 @@
 /********************** Général *****************************/
 /* colors */
 /* distances */
-/* règles générales */
+/* règles et classes générales */
 * {
   padding: 0;
   margin: 0;
@@ -149,7 +149,7 @@ input {
   border: 10px solid #804055;
   margin-bottom: 20px; }
 
-/***************** Page meilleurs scores *************/
+/***************** Score page *************/
 .score {
   margin: 50px;
   text-align: center;

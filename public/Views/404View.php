@@ -1,5 +1,3 @@
-<?php include("Head.php"); ?>
-
 <h1>Erreur 404</h1>
 <div>Il semble que vous vous soyez égaré...</div>
-<?php include("Footer.php"); ?>
+<!-- Page d'erreur 404 qui apparaît lorsque l'url ne trouve rien -->
